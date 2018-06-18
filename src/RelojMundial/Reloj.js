@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const Reloj = ({horario}) => {
   const [ciudad, hora] = horario
@@ -8,6 +9,10 @@ const Reloj = ({horario}) => {
       <span>{ciudad}</span>
     </div>
   )
+}
+
+Reloj.propTypes = {
+	horario: PropTypes.arrayOf(PropTypes.string).isRequired,
 }
 
 export default Reloj;
