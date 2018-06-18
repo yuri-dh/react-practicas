@@ -21,9 +21,9 @@ class RelojMundial extends Component {
 
   horaExacta = () => setInterval(() => {
     const date = new Date()
-    const h = date.getHours() > 10 ? date.getHours() : `0${date.getHours()}`
-    const m = date.getMinutes() > 10 ? date.getMinutes() : `0${date.getMinutes()}`
-    const s = date.getSeconds() > 10 ? date.getSeconds() : `0${date.getSeconds()}`
+    const h = date.getHours() >= 10 ? date.getHours() : `0${date.getHours()}`
+    const m = date.getMinutes() >= 10 ? date.getMinutes() : `0${date.getMinutes()}`
+    const s = date.getSeconds() >= 10 ? date.getSeconds() : `0${date.getSeconds()}`
     this.setState({
       bsas: ['Buenos Aires (Argentina)', `${h}:${m}:${s}`],
       newyork: ['New York (Estados Unidos)', `${h-1}:${m}:${s}`],
@@ -31,6 +31,7 @@ class RelojMundial extends Component {
       moscu: ['Moscú (Rusia)', `${h+6}:${m}:${s}`],
     })
   }, 1000)
+
 
   componentDidMount() {
     this.horaExacta()
